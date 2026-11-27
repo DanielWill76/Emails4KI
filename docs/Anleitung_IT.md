@@ -5,7 +5,7 @@
 
 ## ↗ Überblick
 
-Emails4KI ist ein .NET-10-WinForms-Zusatzprogramm (`Emails4KI.exe`) für den enaio® Client. Es liest die markierten Objekte über die COM-API, kopiert die Mails in einen Arbeitsordner und schreibt UTF-8-Textdateien. Outlook ist nicht erforderlich (.eml: MimeKit, .msg: MsgReader).
+Emails4KI ist ein .NET-10-WinForms-Zusatzprogramm (`Emails4KI.exe`) für den enaio® Client. Es liest die markierten Objekte über die COM-API, kopiert die Mails in einen Arbeitsordner und schreibt UTF-8-Textdateien. Outlook ist nicht erforderlich (.eml und .ima, ältere enaio-Mails: MimeKit; .msg: MsgReader).
 
 
 ## ↗ Installation & Betrieb

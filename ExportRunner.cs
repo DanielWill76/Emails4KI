@@ -57,7 +57,7 @@ public class ExportSummary
 
 public class ExportRunner
 {
-    private static readonly string[] MailExtensions = { ".eml", ".msg" };
+    private static readonly string[] MailExtensions = { ".eml", ".msg", ".ima" }; // .ima = ältere enaio-Mails im RFC-822-Format
 
     private readonly IEnaioClient enaio;
     private readonly ExportConfig config;
@@ -75,7 +75,7 @@ public class ExportRunner
     {
         var summary = new ExportSummary { TotalDocuments = docs.Count };
 
-        string runFolder = Path.Combine(config.ExportPath, DateTime.Now.ToString(config.RunFolderPattern));
+        string runFolder = Path.Combine(config.ExportPath, config.FormatRunFolderName(DateTime.Now));
         runFolder = ResolveUniqueDirectory(runFolder);
         string workFolder = Path.Combine(runFolder, "_work");
         string errorFolder = Path.Combine(runFolder, "_fehler");
@@ -195,7 +195,7 @@ public class ExportRunner
             string ext = Path.GetExtension(sourceFile);
             if (!MailExtensions.Contains(ext, StringComparer.OrdinalIgnoreCase))
             {
-                string msg = $"Datei '{Path.GetFileName(sourceFile)}' ist keine E-Mail (.eml/.msg) und wurde übersprungen.";
+                string msg = $"Datei '{Path.GetFileName(sourceFile)}' ist keine E-Mail (.eml/.msg/.ima) und wurde übersprungen.";
                 Logger.LogWarning($"{displayName}: {msg}");
                 AddIssue(summary, doc, displayName, ExportIssueKind.Warning, msg);
                 continue;

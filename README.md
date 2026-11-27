@@ -1,6 +1,6 @@
-﻿# Emails4KI
+# Emails4KI
 
-**Emails4KI** ist ein Zusatzprogramm für den **enaio® Client** (.NET 10, WinForms). Es exportiert die in der Trefferliste markierten E-Mails (`.eml` / `.msg`) und wandelt sie in schlanke **UTF-8-Textdateien** um. Die Texte dienen als Stilvorlage für einen Skill in der **meinGPT-Plattform**.
+**Emails4KI** ist ein Zusatzprogramm für den **enaio® Client** (.NET 10, WinForms). Es exportiert die in der Trefferliste markierten E-Mails (`.eml` / `.msg` / `.ima`) und wandelt sie in schlanke **UTF-8-Textdateien** um. Die Texte dienen als Stilvorlage für einen Skill in der **meinGPT-Plattform**.
 
 ## Auf einen Blick
 
@@ -9,7 +9,7 @@
 | **Zweck** | E-Mails aus enaio als reinen Text bereitstellen (Kopfzeilen + Textkörper) |
 | **Eingabe** | Markierte Objekte der enaio-Trefferliste (Übergabe als `%i`-Parameter) |
 | **Ausgabe** | Pro Mail eine Datei `Nr_Datum_Betreff.txt` im Laufordner `Export_yyyyMMdd_HHmmss` |
-| **Formate** | `.eml` (MimeKit), `.msg` (MsgReader) – **kein Outlook nötig** |
+| **Formate** | `.eml` und `.ima` (ältere enaio-Mails, MimeKit), `.msg` (MsgReader) – **kein Outlook nötig** |
 | **Sicherheit** | Original-Mails in enaio bleiben unverändert; Arbeitskopie in `_work`, Fehlerfälle in `_fehler` |
 | **Plattform** | Windows, .NET 10 Desktop Runtime |
 
@@ -92,7 +92,7 @@ flowchart TD
     CHK -->|"Löschmarkierung / Löschvormerkung"| SKIP["Übersprungen"]
     CHK -->|"OK"| GET["Dateien holen (GetFiles)"]
     GET -->|"Fehler"| ERR1["Fehler im Ergebnis"]
-    GET -->|"keine .eml/.msg"| WARN["Warnung, übersprungen"]
+    GET -->|"keine .eml/.msg/.ima"| WARN["Warnung, übersprungen"]
     GET -->|"Mail"| COPY["Kopie in _work"]
     COPY --> READ["Lesen: MimeKit / MsgReader"]
     READ -->|"OK"| TXT[("Nr_Datum_Betreff.txt im Laufordner")]
@@ -119,7 +119,7 @@ enaio-Trefferliste
 1. Der Nutzer markiert E-Mails in der enaio-Trefferliste und startet das Zusatzprogramm.
 2. Pro Programmlauf entsteht ein Ordner `<ExportPath>\Export_yyyyMMdd_HHmmss` (Muster über `RunFolderPattern`).
 3. Je Eintrag werden geprüft: Ordner/Register (werden gemeldet und übersprungen), fachliche Löschmarkierung (`zahl1`, je Objekttyp abweichend konfigurierbar) und enaio-Löschvormerkung.
-4. Die Mail wird in den Arbeitsordner `_work` kopiert und dort gelesen (`.eml` über MimeKit, `.msg` über MsgReader – kein Outlook nötig).
+4. Die Mail wird in den Arbeitsordner `_work` kopiert und dort gelesen (`.eml`/`.ima` über MimeKit, `.msg` über MsgReader – kein Outlook nötig).
 5. Ergebnis: `Nr_Datum_Betreff.txt` (z. B. `0001_20250307_Grüße aus Köln.txt`) mit Von, An, Cc, Datum, Betreff und Textkörper (HTML wird zu Text), UTF-8 (standardmäßig mit BOM). Anhänge werden ignoriert.
 6. Die Original-Mail im Arbeitsordner wird gelöscht. Schlägt die Konvertierung fehl, wird das Original nach `_fehler` verschoben und im Ergebnisdialog gemeldet. `_work` wird am Ende immer entfernt.
 
@@ -138,7 +138,7 @@ Alle Werte können über Umgebungsvariablen mit dem Präfix `EMAILS4KI_` übersc
 | Schlüssel | Bedeutung |
 |---|---|
 | `ExportPath` | Basisordner für die Laufordner |
-| `RunFolderPattern` | Datumsmuster des Laufordners |
+| `RunFolderPattern` | Datumsmuster des Laufordners, Festtext in Hochkommas, z. B. `'Export'_yyyyMMdd_HHmmss` |
 | `DeleteFlagField` | Löschfeld der E-Mail-Objekte (Standard `zahl1`) |
 | `DeleteFlagFieldByType` | Abweichendes Löschfeld je Objekttyp-ID, z. B. für weitere Archive |
 | `CheckSystemDeleteFlag` | enaio-Löschvormerkung prüfen |

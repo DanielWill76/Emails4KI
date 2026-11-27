@@ -17,7 +17,10 @@ public class ExportConfig
     };
 
     public string ExportPath { get; set; } = "";
-    public string RunFolderPattern { get; set; } = "Export_yyyyMMdd_HHmmss";
+    public string RunFolderPattern { get; set; } = "'Export'_yyyyMMdd_HHmmss";
+    // Buchstaben wie "t" sind Formatzeichen (AM/PM) und Text muss daher in Hochkommas stehen
+    public string FormatRunFolderName(DateTime now) => now.ToString(RunFolderPattern, System.Globalization.CultureInfo.InvariantCulture);
+
     public string DeleteFlagField { get; set; } = "zahl1";
     public Dictionary<string, string> DeleteFlagFieldByType { get; set; } = new();
     public bool CheckSystemDeleteFlag { get; set; } = true;
@@ -91,7 +94,7 @@ public class ExportConfig
             config.FileLogging.RetentionDays = 0;
 
         if (string.IsNullOrWhiteSpace(config.RunFolderPattern))
-            config.RunFolderPattern = "Export_yyyyMMdd_HHmmss";
+            config.RunFolderPattern = "'Export'_yyyyMMdd_HHmmss";
         else
             _ = DateTime.Now.ToString(config.RunFolderPattern);
 

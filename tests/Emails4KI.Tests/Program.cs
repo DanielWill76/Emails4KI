@@ -23,6 +23,7 @@ internal static class TestProgram
 
         Run("ExportConfig: Umgebungsvariablen, Kommentare, Defaults & Löschfeld je Typ", TestExportConfigParse);
         Run("ExportConfig: Ungültiges RunFolderPattern wirft Fehler", TestExportConfigInvalidPattern);
+        Run("ExportConfig: Laufordnername behält festen Text (Regression Expor_)", TestRunFolderName);
         Run("LoggingSettings: Defaults und Konfigurationsbindung", TestLoggingSettings);
 
         Run("ParameterParser: Datei-Übergabe, Deduplizierung und ungültige Zeilen", TestParameterParser);
@@ -30,6 +31,7 @@ internal static class TestProgram
         Run("MailToTextConverter: EML mit Umlauten (ISO-8859-1) als UTF-8", TestConverterEmlUmlauts);
         Run("MailToTextConverter: EML nur HTML wird zu Text", TestConverterHtmlOnly);
         Run("ExportRunner: Export, Laufordner, Arbeitsordner entfernt", TestExportRunnerSuccess);
+        Run("ExportRunner: Ältere enaio-Mails (.ima, RFC 822) werden exportiert", TestExportRunnerImaMail);
         Run("ExportRunner: Löschflag je Archiv/Typ und System-Löschvormerkung", TestExportRunnerDeleteFlags);
         Run("ExportRunner: Markierte Ordner und Register erkennen & melden", TestExportRunnerNonDocuments);
         Run("ExportRunner: GetFiles Empty vs. Error", TestExportRunnerFileErrors);
@@ -182,6 +184,14 @@ internal static class TestProgram
         AssertEqual("zahl2", cfg.GetDeleteFlagField(65537), "Löschfeld je Typ");
     }
 
+    private static void TestRunFolderName()
+    {
+        var now = new DateTime(2026, 11, 27, 12, 55, 17);
+        AssertEqual("Export_20261127_125517", new ExportConfig().FormatRunFolderName(now));
+        var cfg = ExportConfig.Parse("{ \"exportPath\": \"C:\\\\Temp\" }");
+        AssertEqual("Export_20261127_125517", cfg.FormatRunFolderName(now));
+    }
+
     private static void TestExportConfigInvalidPattern()
     {
         bool threw = false;
@@ -328,6 +338,31 @@ internal static class TestProgram
             Assert(!Directory.Exists(summary.ErrorFolder), "_fehler darf nicht existieren");
             Assert(File.Exists(src), "enaio-Quelldatei darf nicht angetastet werden");
             File.SetAttributes(src, FileAttributes.Normal);
+        }
+        finally
+        {
+            DeleteTempDir(dir);
+        }
+    }
+
+    private static void TestExportRunnerImaMail()
+    {
+        string dir = CreateTempDir();
+        try
+        {
+            string exportDir = Path.Combine(dir, "export");
+            string src = WriteEml(dir, "000E3747.ima", EmlUmlauts);
+
+            var fake = new FakeEnaioClient();
+            fake.AddDoc(10, 393216, "Alte Mail", new Dictionary<string, string>(), FileFetchResult.Ok(new List<string> { src }));
+
+            var summary = new ExportRunner(fake, CreateTestConfig(exportDir))
+                .Run(new[] { new EnaioDocument { Id = 10, Type = 393216 } });
+
+            AssertEqual(1, summary.ExportedFiles);
+            AssertEqual(0, summary.SkippedNonDocuments);
+            AssertEqual(0, summary.Issues.Count, "Hinweise");
+            AssertEqual(1, Directory.GetFiles(summary.RunFolder).Length, "Dateien im Laufordner");
         }
         finally
         {
