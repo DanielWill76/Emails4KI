@@ -1,6 +1,12 @@
 # Projektplan Emails4KI
 
-Stand: November 2026 · Rückwirkend nach dem Phasenmodell des Skills `readme-standard` angelegt und mit dem tatsächlichen Stand (Version 1.0.1) abgeglichen.
+Stand: November 2026 · Rückwirkend nach dem Phasenmodell des Skills `projekt-standard` angelegt und mit dem tatsächlichen Stand (Version 1.0.1) abgeglichen.
+
+## Arbeitsstand
+
+- **Stand:** Version 1.0.1 fertig, getestet (22 Tests grün, 24 von 24 Mails), dokumentiert und gepusht.
+- **Offen:** nichts.
+- **Nächster Schritt:** nur bei neuen Wünschen. Vorher Chat zusammenfassen oder neuen Chat beginnen.
 
 ## 1. Ziel und Zielgruppe
 
