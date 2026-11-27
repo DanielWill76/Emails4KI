@@ -1,7 +1,76 @@
 ﻿# Emails4KI
 
-**Emails4KI** ist ein Zusatzprogramm für den **enaio® Client** (.NET 10 WinForms). Es exportiert die in der Trefferliste markierten E-Mails (`.eml` / `.msg`) und wandelt sie in UTF-8-Textdateien um. Die Texte dienen als Stilvorlage für einen Skill in der meinGPT-Plattform.
+**Emails4KI** ist ein Zusatzprogramm für den **enaio® Client** (.NET 10, WinForms). Es exportiert die in der Trefferliste markierten E-Mails (`.eml` / `.msg`) und wandelt sie in schlanke **UTF-8-Textdateien** um. Die Texte dienen als Stilvorlage für einen Skill in der **meinGPT-Plattform**.
 
+## Auf einen Blick
+
+| | |
+|---|---|
+| **Zweck** | E-Mails aus enaio als reinen Text bereitstellen (Kopfzeilen + Textkörper) |
+| **Eingabe** | Markierte Objekte der enaio-Trefferliste (Übergabe als `%i`-Parameter) |
+| **Ausgabe** | Pro Mail eine Datei `Nr_Datum_Betreff.txt` im Laufordner `Export_yyyyMMdd_HHmmss` |
+| **Formate** | `.eml` (MimeKit), `.msg` (MsgReader) – **kein Outlook nötig** |
+| **Sicherheit** | Original-Mails in enaio bleiben unverändert; Arbeitskopie in `_work`, Fehlerfälle in `_fehler` |
+| **Plattform** | Windows, .NET 10 Desktop Runtime |
+
+## Funktionen
+
+- **Mehrfachauswahl:** beliebig viele E-Mails in einem Lauf; Duplikate in der Übergabe werden entfernt.
+- **Qualitätsprüfung je Eintrag:** Ordner und Register werden gemeldet und übersprungen, ebenso Mails mit fachlicher Löschmarkierung (`DeleteFlagField`, je Objekttyp abweichend konfigurierbar) oder enaio-Löschvormerkung.
+- **Robuste Verarbeitung:** Ein defektes Dokument bricht den Lauf nicht ab; das Original landet in `_fehler` und wird im Ergebnisdialog gemeldet.
+- **Sinnvolle Dateinamen:** laufende Nummer, Datum und bereinigter Betreff (Windows-/Teams-/SharePoint-Zeichen entschärft, Längenbegrenzung, Kollisionsbehandlung).
+- **HTML-Mails:** Ist kein Textkörper vorhanden, wird das HTML in Text umgewandelt.
+- **Fortschritt & Abbruch:** Fortschrittsfenster mit Zählern; bei Abbruch kann das bisher Erzeugte wieder aufgeräumt werden (vorhandene Dateien bleiben unberührt).
+- **Ergebnisdialog:** Zusammenfassung, Hinweise je Eintrag, Schaltflächen zum Öffnen von Exportordner und Protokoll.
+- **Protokollierung:** tägliche Logdatei mit Aufbewahrungsfrist.
+
+## So sieht es aus
+
+| Während der Verarbeitung | Nach Abschluss |
+|---|---|
+| ![Fortschrittsfenster](docs/screenshots/gui_verarbeitung.png) | ![Ergebnisdialog](docs/screenshots/gui_ergebnis.png) |
+
+### Beispiel für eine erzeugte Textdatei
+
+`0001_20250307_Grüße aus Köln.txt`
+
+```text
+Von: Erika Mustermann <erika.mustermann@example.org>
+An: Max Beispiel <max.beispiel@example.org>
+Cc: Team Förderung <foerderung@example.org>
+Datum: 07.03.2025 09:15
+Betreff: Grüße aus Köln
+
+Guten Morgen Herr Beispiel,
+...
+```
+
+Die Zeile `Cc` erscheint nur, wenn Empfänger in Kopie vorhanden sind. Anhänge werden nicht exportiert.
+
+## Voraussetzungen & Installation
+
+1. **.NET 10 Desktop Runtime** (Windows) auf dem Client.
+2. Programmordner (Inhalt von `bin\Release\net10.0-windows`) auf den Client oder eine Freigabe kopieren – inklusive `Emails4KI.json` und `docs\`.
+3. `Emails4KI.exe` im enaio Client als **Zusatzprogramm** einrichten; enaio übergibt die Auswahl über den Parameter `%i`.
+4. Optional `Emails4KI.json` anpassen (siehe Konfiguration) und das Zusatzprogramm neu starten.
+
+Ohne Parameter liest das Programm die aktuelle Auswahl direkt aus dem laufenden enaio Client.
+
+## Rückgabecodes
+
+| Code | Bedeutung |
+|---|---|
+| `0` | Lauf abgeschlossen, keine Dokumentfehler |
+| `1` | Lauf abgeschlossen, mindestens ein Dokument fehlgeschlagen |
+| `2` | Kritischer Fehler, Export konnte nicht durchgeführt werden |
+
+## Abhängigkeiten
+
+| Paket | Verwendung |
+|---|---|
+| MimeKit 5.0.0 | Lesen von `.eml`, HTML-zu-Text |
+| MsgReader 6.2.1 | Lesen von `.msg` ohne Outlook |
+| Microsoft.Extensions.* 10.0.0 | Konfiguration (JSON + Umgebungsvariablen) und Logging |
 ## Anleitungen
 
 | Zielgruppe | HTML | Markdown | Word |
