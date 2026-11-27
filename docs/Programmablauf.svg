@@ -1,0 +1,139 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 1000" width="1120" height="1000" font-family="'At Aero', Arial, Helvetica, sans-serif">
+<defs>
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#001b40" flood-opacity="0.07"/></filter>
+<linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#001b40"/><stop offset="100%" stop-color="#162d59"/></linearGradient>
+<marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#265aa6"/></marker>
+<marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#3d4a6f"/></marker>
+<marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#3b8f64"/></marker>
+<marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#ec634f"/></marker>
+<marker id="arrTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#468e99"/></marker>
+</defs>
+<rect x="1" y="1" width="1118" height="998" rx="16" fill="#ffffff" stroke="#e1e5eb" stroke-width="1.5"/>
+<rect x="30" y="20" width="1060" height="76" rx="14" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <g transform="translate(38, 32) scale(0.62)" fill="#ffffff">
+<path d="M93.19,29.1h-1.23l-3.14,8.38c-.35.94-.68,1.87-.94,2.79h-.02c-.26-.96-.61-1.95-.88-2.68l-3.01-8.49h-1.36l4.59,12.41h1.27l4.72-12.41h0Z"/>
+  <path fill-rule="evenodd" d="M101.41,36.8c0-3.4-1.86-4.58-3.99-4.58-2.74,0-4.28,2.19-4.28,4.74,0,3.2,1.54,4.69,3.97,4.69,2.68,0,4.3-2.19,4.3-4.85h0ZM100.22,36.86c0,2.68-1.4,3.84-2.9,3.84-1.89,0-2.96-1.4-2.96-3.82,0-2.56,1.43-3.71,2.94-3.71,1.93,0,2.92,1.4,2.92,3.69h0Z"/>
+  <polygon points="105.18 41.51 105.18 28.09 104.02 28.09 104.02 41.51 105.18 41.51 105.18 41.51 105.18 41.51"/>
+  <polygon points="115.18 41.51 111.15 36.53 114.87 32.37 113.47 32.37 109.87 36.53 109.87 28.09 108.71 28.09 108.71 41.51 109.87 41.51 109.87 36.66 113.64 41.51 115.18 41.51 115.18 41.51 115.18 41.51"/>
+  <path d="M122.24,38.83c0-3.16-4.63-1.76-4.63-4.12,0-.96.74-1.56,2.15-1.56.64,0,1.32.13,1.93.31l.05-1.03c-.59-.13-1.25-.2-1.82-.2-2.26,0-3.49,1.12-3.49,2.61,0,3.29,4.61,1.82,4.61,4.15,0,1.05-.99,1.67-2.41,1.67-.72,0-1.47-.13-2.06-.29l-.04,1.1c.55.13,1.25.18,1.95.18,2.35,0,3.75-1.27,3.75-2.83h0Z"/>
+  <path d="M137.45,32.37h-1.25l-1.78,5.9c-.28.92-.46,1.47-.63,2.13h-.02c-.15-.53-.28-.99-.66-2.17l-1.91-5.86h-1.4l-1.89,5.88c-.22.7-.44,1.45-.61,2.13h-.02c-.15-.55-.39-1.32-.61-2.13l-1.69-5.88h-1.32l2.85,9.14h1.4l1.8-5.7c.24-.77.48-1.53.68-2.3h.02c.15.57.31,1.12.5,1.67l2.17,6.32h1.38l3-9.14h0Z"/>
+  <path fill-rule="evenodd" d="M145.36,41.51c-.02-.83-.04-1.89-.04-2.83v-3.51c0-1.69-.68-2.94-3.11-2.94-1.23,0-2.28.29-3.14.7l.13,1.05c.81-.53,1.91-.81,2.79-.81,1.64,0,2.17.83,2.17,2.32v.81c-3.68,0-5.63,1.34-5.63,3.2,0,1.45,1.07,2.17,2.48,2.17,1.6,0,2.79-.97,3.24-2.17l.04.02c-.09.53-.11,1.27-.11,2h1.18ZM144.16,37.3c0,1.67-1.14,3.4-2.87,3.4-.96,0-1.58-.55-1.58-1.45s.79-2.08,4.45-2.08v.13h0Z"/>
+  <path fill-rule="evenodd" d="M156.46,43.02c0-1.56-1.08-2.54-3.07-2.54h-1.88c-1.14,0-1.69-.26-1.69-.83,0-.35.22-.68.72-.88.35.09.88.17,1.34.17,2.65,0,3.97-1.53,3.97-3.46,0-.96-.37-1.75-.96-2.19h1.73v-.92h-3.11c-.48-.09-.84-.15-1.32-.15-2.44,0-3.93,1.6-3.93,3.51,0,1.2.44,2.13,1.36,2.68-.64.29-.99.83-.99,1.43s.35,1.05.92,1.32c-.88.46-1.62,1.3-1.62,2.48,0,1.73,1.49,2.68,3.79,2.68,2.74,0,4.74-1.41,4.74-3.33h0ZM154.67,35.61c0,1.56-1.03,2.43-2.63,2.43s-2.61-.85-2.61-2.43c0-1.43.99-2.48,2.68-2.48s2.56.92,2.56,2.48h0ZM155.28,43.16c0,1.31-1.25,2.21-3.36,2.21-1.6,0-2.83-.64-2.83-1.91,0-.81.57-1.51,1.42-1.95h2.57c1.47,0,2.2.61,2.2,1.65h0Z"/>
+  <path fill-rule="evenodd" d="M165.63,35.9c0-1.97-1.03-3.68-3.51-3.68s-3.95,2.02-3.95,4.74c0,3.22,1.45,4.69,4.17,4.69,1.14,0,2.13-.2,2.96-.53l-.11-1.03c-.66.33-1.69.59-2.65.59-2.13,0-3.25-1.21-3.14-4.17h6.19c.04-.26.04-.48.04-.61h0ZM164.4,35.61h-4.93c.26-1.53,1.21-2.5,2.57-2.5,1.49,0,2.39,1.03,2.35,2.5h0Z"/>
+  <path d="M175.45,41.51v-6.36c0-1.64-.64-2.94-2.76-2.94-1.62,0-2.79.9-3.31,2.3l-.04-.02c.11-.57.16-1.49.16-2.11h-1.18v9.14h1.16v-4.37c0-2.3,1.21-3.99,2.94-3.99,1.43,0,1.86.9,1.86,2.43v5.94h1.16Z"/>
+  <path d="M185.71,37.67c0-3.88-5.22-3.05-5.22-5.28,0-.88.7-1.51,2.08-1.51.75,0,1.53.13,2.22.33l.13-2.09c-.73-.13-1.54-.22-2.24-.22-2.98,0-4.72,1.53-4.72,3.73,0,4.08,5.2,3,5.2,5.37,0,1.14-.94,1.64-2.15,1.64-.9,0-1.89-.2-2.59-.44l-.15,2.22c.77.2,1.65.29,2.54.29,3.05,0,4.91-1.71,4.91-4.04h0Z"/>
+  <path d="M192.71,41.45v-1.89c-.33.09-.75.15-1.14.15-.81,0-1.08-.33-1.08-1.51v-4.01h2.22v-1.82h-2.22v-3.44l-2.35.63v2.81h-1.56v1.82h1.58v4.63c0,2.13.62,2.87,2.65,2.87.64,0,1.32-.09,1.91-.24h0Z"/>
+  <path fill-rule="evenodd" d="M197.28,29.76c0-.79-.66-1.41-1.47-1.41s-1.45.64-1.45,1.41.64,1.43,1.45,1.43,1.47-.64,1.47-1.43h0ZM196.98,41.51v-9.14h-2.35v9.14h2.35Z"/>
+  <path d="M205.12,28.09c-.48-.11-.99-.15-1.49-.15-2.5,0-3.64,1.21-3.64,3.69v.73h-1.6v1.82h1.6v7.32h2.33v-7.32h2.13v-1.82h-2.13v-.77c0-1.21.46-1.75,1.49-1.75.35,0,.77.04,1.14.17l.17-1.93h0Z"/>
+  <path d="M210.52,41.45v-1.89c-.33.09-.75.15-1.14.15-.81,0-1.08-.33-1.08-1.51v-4.01h2.22v-1.82h-2.22v-3.44l-2.35.63v2.81h-1.56v1.82h1.58v4.63c0,2.13.63,2.87,2.65,2.87.64,0,1.32-.09,1.91-.24h0Z"/>
+  <path d="M220.37,41.51v-9.14h-2.35v4.41c0,1.6-.92,2.96-2.11,2.96-.88,0-1.14-.57-1.14-1.53v-5.85h-2.33v6.42c0,1.6.66,2.92,2.72,2.92,1.51,0,2.56-.75,3.11-1.84l.02.02c-.09.48-.11,1.2-.11,1.62h2.21Z"/>
+  <path d="M230.85,41.51v-6.41c0-1.6-.66-2.92-2.72-2.92-1.49,0-2.55.75-3.11,1.84l-.02-.02c.09-.48.13-1.19.13-1.62h-2.22v9.14h2.35v-4.41c0-1.6.94-2.96,2.13-2.96.86,0,1.12.57,1.12,1.53v5.85h2.33Z"/>
+  <path fill-rule="evenodd" d="M241.71,42.54c0-1.76-1.14-2.68-3.12-2.68h-1.41c-1.07,0-1.41-.15-1.41-.57,0-.22.15-.46.44-.59.24.05.59.07.9.07,2.54,0,3.95-1.32,3.95-3.35,0-.51-.18-.96-.46-1.21h1.23v-1.84h-3.09c-.52-.11-.99-.2-1.6-.2-2.68,0-4.13,1.62-4.13,3.55,0,1.12.46,2.1,1.36,2.55-.64.24-1.08.92-1.08,1.58s.35,1.12.9,1.4c-.75.39-1.4,1.25-1.4,2.21,0,1.78,1.49,2.7,3.91,2.7,3.05,0,5.02-1.64,5.02-3.62h0ZM238.81,35.55c0,1.01-.7,1.62-1.76,1.62-1.14,0-1.8-.63-1.8-1.64s.68-1.65,1.8-1.65,1.76.63,1.76,1.67h0ZM239.4,42.85c0,.86-.81,1.51-2.35,1.51-1.18,0-1.95-.5-1.95-1.34,0-.51.29-1.01.83-1.31h2.02c1.01,0,1.45.48,1.45,1.14h0Z"/>
+  <path d="M21.23,48.85c0-1.79,1.45-3.23,3.23-3.23s3.23,1.45,3.23,3.23-1.45,3.23-3.23,3.23-3.23-1.45-3.23-3.23h0Z"/>
+  <path d="M22.88,23.12c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M22.88,36.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M36.23,23c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M49.11,23.12c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M49.11,36.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M49.11,62.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M62.34,23.12c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M62.34,49.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M62.34,62.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M33.76,36.15c0-2.33,1.89-4.23,4.23-4.23s4.23,1.89,4.23,4.23-1.89,4.23-4.23,4.23-4.23-1.89-4.23-4.23h0Z"/>
+  <path d="M45.71,48.61c0-2.88,2.34-5.22,5.22-5.22s5.22,2.34,5.22,5.22-2.34,5.22-5.22,5.22-5.22-2.34-5.22-5.22h0Z"/>
+  <path d="M57.88,35.74c0-3.43,2.78-6.22,6.21-6.22s6.21,2.78,6.21,6.22-2.78,6.21-6.21,6.21-6.21-2.78-6.21-6.21h0Z"/>
+  <path d="M36.23,61.92c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M36.23,48.92c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  <path d="M22.88,62.04c0-.96.78-1.74,1.74-1.74s1.74.78,1.74,1.74-.78,1.74-1.74,1.74-1.74-.78-1.74-1.74h0Z"/>
+  </g>
+
+<text x="640" y="52" text-anchor="middle" fill="#ffffff" font-size="19.5" font-weight="600">Technischer Ablauf – Emails4KI (.NET 10 WinForms)</text>
+<text x="640" y="76" text-anchor="middle" fill="#c2cbd7" font-size="13">ExportRunner · MailToTextConverter · FileNameBuilder · Konfiguration Emails4KI.json (Präfix EMAILS4KI_)</text>
+<rect x="45" y="112" width="1030" height="700" rx="16" fill="none" stroke="#c2cbd7" stroke-width="2" stroke-dasharray="9 6"/>
+<rect x="70" y="125" width="520" height="86" rx="12" fill="#ffffff" stroke="#265aa6" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,145)"><rect x="0" y="4" width="34" height="42" rx="4" fill="#dceaf8" stroke="#265aa6" stroke-width="2"/><rect x="9" y="0" width="16" height="8" rx="2" fill="#265aa6"/><line x1="8" y1="18" x2="26" y2="18" stroke="#001b40" stroke-width="2"/><line x1="8" y1="26" x2="26" y2="26" stroke="#001b40" stroke-width="2"/><line x1="8" y1="34" x2="20" y2="34" stroke="#001b40" stroke-width="2"/></g>
+<text x="142" y="155" fill="#001b40" font-size="15.5" font-weight="700">1. Start aus enaio-Trefferliste</text>
+<text x="142" y="177" fill="#3d4a6f" font-size="13">ParameterParser liest %i-Parameter, EnaioClient (COM)</text>
+<text x="142" y="195" fill="#616160" font-size="12">Laden von Emails4KI.json + Umgebungsvariablen</text>
+<line x1="330" y1="211" x2="330" y2="225" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="225" width="520" height="86" rx="12" fill="#f4f6fa" stroke="#001b40" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,245)"><path d="M0 8 Q0 4 4 4 H14 L18 9 H32 Q36 9 36 13 V38 Q36 42 32 42 H4 Q0 42 0 38 Z" fill="#cfeadb" stroke="#3b8f64" stroke-width="2"/><path d="M12 26 L17 31 L26 20" fill="none" stroke="#3b8f64" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="142" y="255" fill="#001b40" font-size="15.5" font-weight="700">2. Laufordner anlegen</text>
+<text x="142" y="277" fill="#3d4a6f" font-size="13">ExportPath\Export_yyyyMMdd_HHmmss (RunFolderPattern)</text>
+<text x="142" y="295" fill="#616160" font-size="12">Eindeutig via ResolveUniqueDirectory; Unterordner _work</text>
+<line x1="330" y1="311" x2="330" y2="325" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="325" width="520" height="86" rx="12" fill="#f0f2f5" stroke="#6c7494" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,345)"><path d="M17 0 L34 7 V24 C34 36 26 44 17 48 C8 44 0 36 0 24 V7 Z" fill="#dfe3ec" stroke="#3d4a6f" stroke-width="2"/><path d="M9 24 L15 30 L26 16" fill="none" stroke="#3d4a6f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="142" y="355" fill="#001b40" font-size="15.5" font-weight="700">3. Prüfungen je Eintrag</text>
+<text x="142" y="377" fill="#3d4a6f" font-size="13">GetObjectKind: Ordner/Register → NonDocument-Hinweis</text>
+<text x="142" y="395" fill="#616160" font-size="12">DeleteFlagField (zahl1) · CheckSystemDeleteFlag (Access = 8)</text>
+<line x1="330" y1="411" x2="330" y2="425" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="425" width="520" height="86" rx="12" fill="#f0f2f5" stroke="#6c7494" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,445)"><path d="M17 0 L34 7 V24 C34 36 26 44 17 48 C8 44 0 36 0 24 V7 Z" fill="#dfe3ec" stroke="#3d4a6f" stroke-width="2"/><path d="M9 24 L15 30 L26 16" fill="none" stroke="#3d4a6f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="142" y="455" fill="#001b40" font-size="15.5" font-weight="700">4. Dateien holen</text>
+<text x="142" y="477" fill="#3d4a6f" font-size="13">enaio.GetFiles(doc): Status Empty / Error / Ok</text>
+<text x="142" y="495" fill="#616160" font-size="12">Nicht .eml/.msg → Warnung, Datei übersprungen</text>
+<line x1="330" y1="511" x2="330" y2="525" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="525" width="520" height="86" rx="12" fill="#f4f6fa" stroke="#001b40" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,545)"><path d="M2 0 H24 L34 10 V46 H2 Z" fill="#e3e6f6" stroke="#4a4fa3" stroke-width="2"/><path d="M24 0 V10 H34" fill="none" stroke="#4a4fa3" stroke-width="2"/><text x="18" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#4a4fa3">T</text><line x1="8" y1="37" x2="28" y2="37" stroke="#4a4fa3" stroke-width="2"/></g>
+<text x="142" y="555" fill="#001b40" font-size="15.5" font-weight="700">5. Arbeitskopie lesen</text>
+<text x="142" y="577" fill="#3d4a6f" font-size="13">CopyFileSafe → _work\NNNN.eml|msg</text>
+<text x="142" y="595" fill="#616160" font-size="12">.eml: MimeKit · .msg: MsgReader · HTML → Text</text>
+<line x1="330" y1="611" x2="330" y2="625" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="625" width="520" height="86" rx="12" fill="#eef8f2" stroke="#6abc8f" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,645)"><path d="M0 8 Q0 4 4 4 H14 L18 9 H32 Q36 9 36 13 V38 Q36 42 32 42 H4 Q0 42 0 38 Z" fill="#cfeadb" stroke="#3b8f64" stroke-width="2"/><path d="M12 26 L17 31 L26 20" fill="none" stroke="#3b8f64" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="142" y="655" fill="#001b40" font-size="15.5" font-weight="700">6. Textdatei schreiben</text>
+<text x="142" y="677" fill="#3d4a6f" font-size="13">FileNameBuilder.BuildMailName: NNNN_yyyyMMdd_Betreff.txt</text>
+<text x="142" y="695" fill="#616160" font-size="12">MaxFileNameLength 140 · ResolveCollision · UTF-8 (Utf8Bom)</text>
+<line x1="330" y1="711" x2="330" y2="725" stroke="#3d4a6f" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+<rect x="70" y="725" width="520" height="86" rx="12" fill="#d1e3e6" stroke="#468e99" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(90,745)"><circle cx="18" cy="12" r="10" fill="#b5d3d8" stroke="#468e99" stroke-width="2"/><path d="M0 46 C0 30 8 26 18 26 C28 26 36 30 36 46 Z" fill="#b5d3d8" stroke="#468e99" stroke-width="2"/></g>
+<text x="142" y="755" fill="#001b40" font-size="15.5" font-weight="700">7. Ergebnisdialog &amp; Aufräumen</text>
+<text x="142" y="777" fill="#3d4a6f" font-size="13">ExportSummaryForm; finally: RemoveWorkFolder(_work)</text>
+<text x="142" y="795" fill="#616160" font-size="12">AutoOpenExportFolders: Explorer öffnet Laufordner</text>
+<rect x="670" y="325" width="380" height="86" rx="12" fill="#feecbf" stroke="#fab400" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,345)"><path d="M18 2 L35 40 H1 Z" fill="#fce3df" stroke="#ec634f" stroke-width="2.5" stroke-linejoin="round"/><line x1="18" y1="15" x2="18" y2="28" stroke="#ec634f" stroke-width="3.5" stroke-linecap="round"/><circle cx="18" cy="34" r="2.2" fill="#ec634f"/></g>
+<text x="742" y="355" fill="#001b40" font-size="15.5" font-weight="700">Übersprungen (kein Fehler)</text>
+<text x="742" y="377" fill="#3d4a6f" font-size="13">SkippedDeleteFlag / SkippedSystemDelete</text>
+<text x="742" y="395" fill="#616160" font-size="12">Nur Logeintrag, Zähler im Ergebnis</text>
+<rect x="670" y="425" width="380" height="86" rx="12" fill="#fdf0ee" stroke="#ec634f" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,445)"><path d="M18 2 L35 40 H1 Z" fill="#fce3df" stroke="#ec634f" stroke-width="2.5" stroke-linejoin="round"/><line x1="18" y1="15" x2="18" y2="28" stroke="#ec634f" stroke-width="3.5" stroke-linecap="round"/><circle cx="18" cy="34" r="2.2" fill="#ec634f"/></g>
+<text x="742" y="455" fill="#001b40" font-size="15.5" font-weight="700">Fehler beim Laden</text>
+<text x="742" y="477" fill="#3d4a6f" font-size="13">FailedDocuments++, Issue + LogError</text>
+<text x="742" y="495" fill="#616160" font-size="12">Kein Dateiinhalt: EmptyDocuments++</text>
+<rect x="670" y="525" width="380" height="86" rx="12" fill="#fdf0ee" stroke="#ec634f" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,545)"><path d="M18 2 L35 40 H1 Z" fill="#fce3df" stroke="#ec634f" stroke-width="2.5" stroke-linejoin="round"/><line x1="18" y1="15" x2="18" y2="28" stroke="#ec634f" stroke-width="3.5" stroke-linecap="round"/><circle cx="18" cy="34" r="2.2" fill="#ec634f"/></g>
+<text x="742" y="555" fill="#001b40" font-size="15.5" font-weight="700">Konvertierung fehlgeschlagen</text>
+<text x="742" y="577" fill="#3d4a6f" font-size="13">MoveToErrorFolder → Laufordner\_fehler</text>
+<text x="742" y="595" fill="#616160" font-size="12">Original mit Nummer erhalten, Issue im Dialog</text>
+<rect x="670" y="625" width="380" height="86" rx="12" fill="#eef8f2" stroke="#6abc8f" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,645)"><path d="M0 8 Q0 4 4 4 H14 L18 9 H32 Q36 9 36 13 V38 Q36 42 32 42 H4 Q0 42 0 38 Z" fill="#cfeadb" stroke="#3b8f64" stroke-width="2"/><path d="M12 26 L17 31 L26 20" fill="none" stroke="#3b8f64" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="742" y="655" fill="#001b40" font-size="15.5" font-weight="700">Erfolg</text>
+<text x="742" y="677" fill="#3d4a6f" font-size="13">DeleteFileSafe(Arbeitskopie)</text>
+<text x="742" y="695" fill="#616160" font-size="12">ExportedFiles++, Logger.Log(Exportiert)</text>
+<line x1="590" y1="368" x2="670" y2="368" stroke="#3d4a6f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrSlate)"/>
+<line x1="590" y1="468" x2="670" y2="468" stroke="#ec634f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrRed)"/>
+<line x1="590" y1="568" x2="670" y2="568" stroke="#ec634f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrRed)"/>
+<line x1="590" y1="668" x2="670" y2="668" stroke="#3b8f64" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+<text x="630" y="361" text-anchor="middle" fill="#6c7494" font-size="12" font-weight="600">Skip</text>
+<text x="630" y="461" text-anchor="middle" fill="#ec634f" font-size="12" font-weight="600">Fehler</text>
+<text x="630" y="561" text-anchor="middle" fill="#ec634f" font-size="12" font-weight="600">Exception</text>
+<text x="630" y="661" text-anchor="middle" fill="#3b8f64" font-size="12" font-weight="600">OK</text>
+<rect x="670" y="125" width="380" height="86" rx="12" fill="#f0f2f5" stroke="#c2cbd7" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,145)"><rect x="2" y="0" width="30" height="44" rx="3" fill="#e8eaef" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="12" x2="26" y2="12" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="21" x2="26" y2="21" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="30" x2="20" y2="30" stroke="#6c7494" stroke-width="2"/></g>
+<text x="742" y="155" fill="#001b40" font-size="15.5" font-weight="700">Abbruch möglich</text>
+<text x="742" y="177" fill="#3d4a6f" font-size="13">CancellationToken im ExportProgressForm</text>
+<text x="742" y="195" fill="#616160" font-size="12">Bereits erzeugte Dateien bleiben (WasCancelled)</text>
+<rect x="670" y="725" width="380" height="86" rx="12" fill="#f0f2f5" stroke="#6c7494" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(690,745)"><rect x="2" y="0" width="30" height="44" rx="3" fill="#e8eaef" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="12" x2="26" y2="12" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="21" x2="26" y2="21" stroke="#6c7494" stroke-width="2"/><line x1="9" y1="30" x2="20" y2="30" stroke="#6c7494" stroke-width="2"/></g>
+<text x="742" y="755" fill="#001b40" font-size="15.5" font-weight="700">Protokoll (Log)</text>
+<text x="742" y="777" fill="#3d4a6f" font-size="13">%LOCALAPPDATA%\Emails4KI\Logs</text>
+<text x="742" y="795" fill="#616160" font-size="12">Emails4KI-yyyy-MM-dd.log · RetentionDays: 30</text>
+<line x1="590" y1="768" x2="670" y2="768" stroke="#3d4a6f" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrSlate)"/>
+<rect x="45" y="835" width="1030" height="86" rx="12" fill="#f4f6fa" stroke="#001b40" stroke-width="2" filter="url(#shadow)"/>
+<g transform="translate(65,855)"><path d="M17 0 L34 7 V24 C34 36 26 44 17 48 C8 44 0 36 0 24 V7 Z" fill="#dfe3ec" stroke="#3d4a6f" stroke-width="2"/><path d="M9 24 L15 30 L26 16" fill="none" stroke="#3d4a6f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="117" y="865" fill="#001b40" font-size="15.5" font-weight="700">Konfigurationsschlüssel</text>
+<text x="117" y="887" fill="#3d4a6f" font-size="13">ExportPath · RunFolderPattern · DeleteFlagField · DeleteFlagFieldByType · CheckSystemDeleteFlag</text>
+<text x="117" y="905" fill="#616160" font-size="12">MaxFileNameLength · Utf8Bom · AutoOpenExportFolders · FileLogging.Directory/RetentionDays</text>
+</svg>
+
