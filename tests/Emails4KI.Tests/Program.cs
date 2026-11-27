@@ -28,6 +28,9 @@ internal static class TestProgram
 
         Run("ParameterParser: Datei-Übergabe, Deduplizierung und ungültige Zeilen", TestParameterParser);
 
+        Run("ParameterParser %i: Varianten (CRLF, BOM, Leerzeilen, Leerzeichen, Pfad mit Leerzeichen)", TestParameterParserIVariants);
+        Run("ParameterParser: %o/%p/%f/%g-Inhalte (Pfade) werden nicht als ID,Typ missverstanden", TestParameterParserPathParameters);
+        Run("ParameterParser: Leere/fehlende Übergabe und nicht vorhandene Datei", TestParameterParserEmpty);
         Run("MailToTextConverter: EML mit Umlauten (ISO-8859-1) als UTF-8", TestConverterEmlUmlauts);
         Run("MailToTextConverter: EML nur HTML wird zu Text", TestConverterHtmlOnly);
         Run("ExportRunner: Export, Laufordner, Arbeitsordner entfernt", TestExportRunnerSuccess);
@@ -252,6 +255,90 @@ internal static class TestProgram
         {
             DeleteTempDir(dir);
         }
+    }
+
+    private static void TestParameterParserIVariants()
+    {
+        string dir = CreateTempDir();
+        try
+        {
+            string sub = Path.Combine(dir, "mit Leerzeichen");
+            Directory.CreateDirectory(sub);
+
+            // CRLF, Leerzeilen, Leerzeichen um Werte, Endzeile ohne Zeilenumbruch
+            string f1 = Path.Combine(sub, "p1.txt");
+            File.WriteAllText(f1, "100,393216\r\n\r\n 101 , 393216 \r\n102,393216");
+            AssertEqual(3, ParameterParser.Parse(f1).Documents.Count, "CRLF/Leerzeilen/Leerzeichen");
+
+            // UTF-8 mit BOM
+            string f2 = Path.Combine(dir, "p2.txt");
+            File.WriteAllText(f2, "200,393216\n201,393216\n", new UTF8Encoding(true));
+            AssertEqual(2, ParameterParser.Parse(f2).Documents.Count, "UTF-8 mit BOM");
+
+            // Große Auswahl, wie sie %i für viele Objekte liefert
+            string f3 = Path.Combine(dir, "p3.txt");
+            File.WriteAllLines(f3, Enumerable.Range(1, 5000).Select(i => $"{i},393216"));
+            AssertEqual(5000, ParameterParser.Parse(f3).Documents.Count, "5000 Einträge");
+
+            // Große IDs und Typen (long)
+            string f4 = Path.Combine(dir, "p4.txt");
+            File.WriteAllText(f4, "2147483648,6488064");
+            var big = ParameterParser.Parse(f4).Documents.Single();
+            AssertEqual(2147483648L, big.Id, "ID > int");
+            AssertEqual(6488064L, big.Type, "Typ");
+
+            // Ein `;`-Einzeiler IN der Datei ist laut enaio-Format ungültig
+            string f5 = Path.Combine(dir, "p5.txt");
+            File.WriteAllText(f5, "1,2;3,4");
+            var one = ParameterParser.Parse(f5);
+            AssertEqual(0, one.Documents.Count, "`;` in Datei");
+            AssertEqual(1, one.InvalidEntriesSkipped, "Ungültig");
+
+            // Format von GetCurrentSelection (Fallback ohne Parameter)
+            AssertEqual(3, ParameterParser.Parse("1,2;3,4;5,6").Documents.Count, "GetCurrentSelection-Format");
+        }
+        finally
+        {
+            DeleteTempDir(dir);
+        }
+    }
+
+    private static void TestParameterParserPathParameters()
+    {
+        string dir = CreateTempDir();
+        try
+        {
+            // %p: Textdatei mit enaio-Objektpfaden, %g: Textdatei mit Cache-Dateipfaden
+            string p = Path.Combine(dir, "p.txt");
+            File.WriteAllLines(p, new[] { @"Eingang\Schrank\Mail 1", @"Eingang\Schrank\Mail 2" });
+            var rp = ParameterParser.Parse(p);
+            AssertEqual(0, rp.Documents.Count, "%p liefert keine IDs");
+            AssertEqual(2, rp.InvalidEntriesSkipped, "%p ungültig gezählt");
+
+            string g = Path.Combine(dir, "g.txt");
+            File.WriteAllLines(g, new[] { @"P:\SYSTEM\TEMP\X\CACHE\06\00\47\000E3747.ima", @"P:\SYSTEM\TEMP\X\CACHE\06\00\15\00208A15.eml" });
+            var rg = ParameterParser.Parse(g);
+            AssertEqual(0, rg.Documents.Count, "%g liefert keine IDs");
+            AssertEqual(2, rg.InvalidEntriesSkipped, "%g ungültig gezählt");
+
+            // %o/%f: direkte Pfade (ggf. in Anführungszeichen), die nicht existieren
+            AssertEqual(0, ParameterParser.Parse("\"P:\\SYSTEM\\TEMP\\mit Leerzeichen\\a.eml\"").Documents.Count, "%f direkt");
+            AssertEqual(0, ParameterParser.Parse(@"Eingang\Schrank\Mail 1").Documents.Count, "%o direkt");
+        }
+        finally
+        {
+            DeleteTempDir(dir);
+        }
+    }
+
+    private static void TestParameterParserEmpty()
+    {
+        AssertEqual(0, ParameterParser.Parse(null).Documents.Count, "null");
+        AssertEqual(0, ParameterParser.Parse("").Documents.Count, "leer");
+        AssertEqual(0, ParameterParser.Parse("   ").Documents.Count, "Leerzeichen");
+        var missing = ParameterParser.Parse(@"C:\gibt\es\nicht\param.txt");
+        AssertEqual(0, missing.Documents.Count, "fehlende Datei");
+        Assert(missing.TempFile == null, "TempFile darf nicht gesetzt sein");
     }
 
     // Quoted-Printable mit ISO-8859-1: Umlaute müssen als echtes UTF-8 in der TXT landen
