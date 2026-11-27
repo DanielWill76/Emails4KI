@@ -17,7 +17,7 @@ public class ExportConfig
     };
 
     public string ExportPath { get; set; } = "";
-    public string RunFolderPattern { get; set; } = "'Export'_yyyyMMdd_HHmmss";
+    public string RunFolderPattern { get; set; } = "'Mailexport'_yyyyMMdd_HHmmss";
     // Buchstaben wie "t" sind Formatzeichen (AM/PM) und Text muss daher in Hochkommas stehen
     public string FormatRunFolderName(DateTime now) => now.ToString(RunFolderPattern, System.Globalization.CultureInfo.InvariantCulture);
 
@@ -94,7 +94,7 @@ public class ExportConfig
             config.FileLogging.RetentionDays = 0;
 
         if (string.IsNullOrWhiteSpace(config.RunFolderPattern))
-            config.RunFolderPattern = "'Export'_yyyyMMdd_HHmmss";
+            config.RunFolderPattern = "'Mailexport'_yyyyMMdd_HHmmss";
         else
             _ = DateTime.Now.ToString(config.RunFolderPattern);
 

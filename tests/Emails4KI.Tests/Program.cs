@@ -197,9 +197,9 @@ internal static class TestProgram
     private static void TestRunFolderName()
     {
         var now = new DateTime(2026, 11, 27, 12, 55, 17);
-        AssertEqual("Export_20261127_125517", new ExportConfig().FormatRunFolderName(now));
+        AssertEqual("Mailexport_20261127_125517", new ExportConfig().FormatRunFolderName(now));
         var cfg = ExportConfig.Parse("{ \"exportPath\": \"C:\\\\Temp\" }");
-        AssertEqual("Export_20261127_125517", cfg.FormatRunFolderName(now));
+        AssertEqual("Mailexport_20261127_125517", cfg.FormatRunFolderName(now));
     }
 
     private static void TestExportConfigInvalidPattern()

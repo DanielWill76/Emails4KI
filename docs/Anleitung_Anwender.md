@@ -45,7 +45,7 @@
 
 ### 4. Textdateien verwenden
 
-- Ablage unter `Downloads\enaio_export\Export_Datum_Uhrzeit`.
+- Ablage unter `Downloads\enaio_export\Mailexport_Datum_Uhrzeit`.
 - Dateiname: `0001_20250307_Betreff.txt`.
 - Inhalt: Von, An, Cc, Datum, Betreff und Text. Anhänge werden nicht übernommen.
 

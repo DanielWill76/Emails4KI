@@ -32,7 +32,7 @@ Emails4KI ist ein .NET-10-WinForms-Zusatzprogramm (`Emails4KI.exe`) für den ena
 | Schlüssel | Bedeutung |
 |---|---|
 | ExportPath | Basisordner (Standard %USERPROFILE%\Downloads\enaio_export) |
-| RunFolderPattern | Muster des Laufordners (Export_yyyyMMdd_HHmmss) |
+| RunFolderPattern | Muster des Laufordners (Mailexport_yyyyMMdd_HHmmss) |
 | DeleteFlagField | Fachliches Löschfeld (zahl1) |
 | DeleteFlagFieldByType | Abweichendes Löschfeld je Objekttyp-ID |
 | CheckSystemDeleteFlag | enaio-Löschvormerkung prüfen |

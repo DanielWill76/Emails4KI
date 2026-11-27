@@ -39,9 +39,9 @@
   // (unterstuetzt Umgebungsvariablen wie %USERPROFILE% sowie lokale/UNC-Pfade).
   "ExportPath": "%USERPROFILE%\\Downloads\\enaio_export",
 
-  // Namensmuster des Laufordners (.NET-Datumsformat), z. B. "'Export'_yyyyMMdd_HHmmss".
+  // Namensmuster des Laufordners (.NET-Datumsformat), z. B. "'Mailexport'_yyyyMMdd_HHmmss".
   // Fester Text muss in einfachen Hochkommas stehen (sonst wird z. B. das "t" als AM/PM-Formatzeichen gelesen).
-  "RunFolderPattern": "'Export'_yyyyMMdd_HHmmss",
+  "RunFolderPattern": "'Mailexport'_yyyyMMdd_HHmmss",
 
   // Interner enaio-Dokumentfeldname der fachlichen Loeschmarkierung (1 / ja / true).
   // Gilt fuer alle Archive (E-Mail-Objekte in "Foerderverwaltung" und "Aktenplanablage").

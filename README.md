@@ -8,7 +8,7 @@
 |---|---|
 | **Zweck** | E-Mails aus enaio als reinen Text bereitstellen (Kopfzeilen + Textkörper) |
 | **Eingabe** | Markierte Objekte der enaio-Trefferliste (Übergabe als `%i`-Parameter) |
-| **Ausgabe** | Pro Mail eine Datei `Nr_Datum_Betreff.txt` im Laufordner `Export_yyyyMMdd_HHmmss` |
+| **Ausgabe** | Pro Mail eine Datei `Nr_Datum_Betreff.txt` im Laufordner `Mailexport_yyyyMMdd_HHmmss` |
 | **Formate** | `.eml` und `.ima` (ältere enaio-Mails, MimeKit), `.msg` (MsgReader) – **kein Outlook nötig** |
 | **Sicherheit** | Original-Mails in enaio bleiben unverändert; Arbeitskopie in `_work`, Fehlerfälle in `_fehler` |
 | **Plattform** | Windows, .NET 10 Desktop Runtime |
@@ -86,7 +86,7 @@ Ohne Parameter liest das Programm die aktuelle Auswahl direkt aus dem laufenden 
 
 ```mermaid
 flowchart TD
-    START["enaio-Trefferliste: E-Mails markieren"] --> RUN["Laufordner Export_yyyyMMdd_HHmmss anlegen"]
+    START["enaio-Trefferliste: E-Mails markieren"] --> RUN["Laufordner Mailexport_yyyyMMdd_HHmmss anlegen"]
     RUN --> CHK{"Prüfung je Eintrag"}
     CHK -->|"Ordner / Register"| NONDOC["Hinweis im Ergebnis"]
     CHK -->|"Löschmarkierung / Löschvormerkung"| SKIP["Übersprungen"]
@@ -107,7 +107,7 @@ enaio-Trefferliste
         |
         v
 %USERPROFILE%\Downloads\enaio_export\
-  \-- Export_yyyyMMdd_HHmmss\     <- Laufordner
+  \-- Mailexport_yyyyMMdd_HHmmss\     <- Laufordner
         |-- _work\                <- Arbeitskopien (wird immer entfernt)
         |-- _fehler\              <- nicht konvertierbare Originale
         \-- 0001_20250307_Betreff.txt   <- Ergebnis (UTF-8)
@@ -117,7 +117,7 @@ enaio-Trefferliste
 ## Ablauf
 
 1. Der Nutzer markiert E-Mails in der enaio-Trefferliste und startet das Zusatzprogramm.
-2. Pro Programmlauf entsteht ein Ordner `<ExportPath>\Export_yyyyMMdd_HHmmss` (Muster über `RunFolderPattern`).
+2. Pro Programmlauf entsteht ein Ordner `<ExportPath>\Mailexport_yyyyMMdd_HHmmss` (Muster über `RunFolderPattern`).
 3. Je Eintrag werden geprüft: Ordner/Register (werden gemeldet und übersprungen), fachliche Löschmarkierung (`zahl1`, je Objekttyp abweichend konfigurierbar) und enaio-Löschvormerkung.
 4. Die Mail wird in den Arbeitsordner `_work` kopiert und dort gelesen (`.eml`/`.ima` über MimeKit, `.msg` über MsgReader – kein Outlook nötig).
 5. Ergebnis: `Nr_Datum_Betreff.txt` (z. B. `0001_20250307_Grüße aus Köln.txt`) mit Von, An, Cc, Datum, Betreff und Textkörper (HTML wird zu Text), UTF-8 (standardmäßig mit BOM). Anhänge werden ignoriert.
@@ -138,7 +138,7 @@ Alle Werte können über Umgebungsvariablen mit dem Präfix `EMAILS4KI_` übersc
 | Schlüssel | Bedeutung |
 |---|---|
 | `ExportPath` | Basisordner für die Laufordner |
-| `RunFolderPattern` | Datumsmuster des Laufordners, Festtext in Hochkommas, z. B. `'Export'_yyyyMMdd_HHmmss` |
+| `RunFolderPattern` | Datumsmuster des Laufordners, Festtext in Hochkommas, z. B. `'Mailexport'_yyyyMMdd_HHmmss` |
 | `DeleteFlagField` | Löschfeld der E-Mail-Objekte (Standard `zahl1`) |
 | `DeleteFlagFieldByType` | Abweichendes Löschfeld je Objekttyp-ID, z. B. für weitere Archive |
 | `CheckSystemDeleteFlag` | enaio-Löschvormerkung prüfen |
