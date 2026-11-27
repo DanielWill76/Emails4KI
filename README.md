@@ -78,6 +78,8 @@ Ohne Parameter liest das Programm die aktuelle Auswahl direkt aus dem laufenden 
 | Anwender (Fachbereich) | [HTML](docs/Anleitung_Anwender.html) | [MD](docs/Anleitung_Anwender.md) | [DOCX](docs/Anleitung_Anwender.docx) |
 | IT & Betrieb | [HTML](docs/Anleitung_IT.html) | [MD](docs/Anleitung_IT.md) | [DOCX](docs/Anleitung_IT.docx) |
 
+Der [Projektplan](docs/Projektplan.md) beschreibt Ziel, Architektur und Testplan.
+
 ## Grafischer Programmablauf
 
 ![Programmablauf – Übersicht für Anwender](docs/Programmablauf_Uebersicht.svg)
