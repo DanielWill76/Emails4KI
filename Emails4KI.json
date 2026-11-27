@@ -1,0 +1,64 @@
+﻿{
+  // ============================================================================
+  // Konfiguration fuer Emails4KI
+  // Hinweise:
+  //   - Backslashes (\) in Pfaden muessen in JSON verdoppelt werden (\\).
+  //   - Alle Werte koennen per Umgebungsvariable mit Praefix "EMAILS4KI_"
+  //     ueberschrieben werden (z. B. EMAILS4KI_FileLogging__Directory).
+  //   - Nach Aenderungen das Zusatzprogramm beim naechsten Aufruf neu starten.
+  // ============================================================================
+
+  "Logging": {
+    // Erlaubte LogLevel (von ausfuehrlich bis aus):
+    //   "Trace"       = sehr detaillierte Diagnoseausgaben
+    //   "Debug"       = Fehlersuche / Entwicklungsdetails
+    //   "Information" = normaler Betriebsablauf (empfohlener Standard)
+    //   "Warning"     = Warnungen (z. B. fehlende Ausschreibung, markierte Ordner)
+    //   "Error"       = Verarbeitungs- und Laufzeitfehler je Dokument
+    //   "Critical"    = kritische Abstuerze / unbehandelte Ausnahmen
+    //   "None"        = Logging fuer diese Kategorie deaktivieren
+    "LogLevel": {
+      "Default": "Information"
+    }
+  },
+
+  "FileLogging": {
+    // Zielordner fuer taegliche Logdateien (Emails4KI-yyyy-MM-dd.log).
+    // Erlaubt sind:
+    //   - Umgebungsvariablen (z. B. "%LOCALAPPDATA%\\Emails4KI\\Logs")
+    //   - relativer Pfad zur .exe (z. B. "Log")
+    //   - absoluter lokaler Pfad (z. B. "D:\\Logs\\Emails4KI")
+    //   - UNC-Pfad (z. B. "\\\\fileserver\\Logs\\Emails4KI")
+    "Directory": "%LOCALAPPDATA%\\Emails4KI\\Logs",
+
+    // Aufbewahrungsdauer der Logdateien in Tagen (30 = Client-Tool, 0 = deaktiviert).
+    "RetentionDays": 30
+  },
+
+  // Basis-Zielordner. Pro Programmlauf wird darin ein eigener Unterordner angelegt
+  // (unterstuetzt Umgebungsvariablen wie %USERPROFILE% sowie lokale/UNC-Pfade).
+  "ExportPath": "%USERPROFILE%\\Downloads\\enaio_export",
+
+  // Namensmuster des Laufordners (.NET-Datumsformat), z. B. "Export_yyyyMMdd_HHmmss".
+  "RunFolderPattern": "Export_yyyyMMdd_HHmmss",
+
+  // Interner enaio-Dokumentfeldname der fachlichen Loeschmarkierung (1 / ja / true).
+  // Gilt fuer alle Archive (E-Mail-Objekte in "Foerderverwaltung" und "Aktenplanablage").
+  "DeleteFlagField": "zahl1",
+
+  // Optional: abweichendes Loeschfeld je Objekttyp (Typ-ID als Schluessel), z. B. fuer weitere Archive:
+  //   "DeleteFlagFieldByType": { "65537": "zahl2" }
+  "DeleteFlagFieldByType": {},
+
+  // Zusaetzlich die systemseitige enaio-Loeschvormerkung (CheckObjectAccess = 8) pruefen.
+  "CheckSystemDeleteFlag": true,
+
+  // Maximale Dateinamenslaenge inkl. Erweiterung (mind. 20, empfohlen: 140).
+  "MaxFileNameLength": 140,
+
+  // Textdateien mit UTF-8-BOM schreiben (empfohlen: Windows-Editoren erkennen Umlaute sicher).
+  "Utf8Bom": true,
+
+  // Vorbelegung der Checkbox "Exportordner beim Schliessen im Explorer oeffnen".
+  "AutoOpenExportFolders": true
+}
