@@ -221,7 +221,8 @@ public class EnaioClient : IEnaioClient
 
     public string GetCurrentSelection()
     {
-        object result = "";
+        // Late Binding: ref-Parameter muss ein null-Objekt sein (string/int -> "Could not convert argument 0")
+        object? result = null;
         int count = Convert.ToInt32(app!.GetCurrentSelection(ref result));
 
         if (count <= 0 || result == null)

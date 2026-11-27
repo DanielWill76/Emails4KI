@@ -11,7 +11,7 @@ internal static class TestProgram
     private static int passed;
     private static int failed;
 
-    static int Main()
+    static int Main(string[] args)
     {
         Logger.EnableConsoleOutput = false;
 
@@ -37,6 +37,13 @@ internal static class TestProgram
         Run("ExportRunner: GetFiles Empty vs. Error", TestExportRunnerFileErrors);
         Run("ExportRunner: Defekte Mail landet im Fehlerordner", TestExportRunnerCorruptMail);
         Run("ExportRunner: Abbruch über CancellationToken", TestExportRunnerCancellation);
+
+        // Live-Tests gegen einen laufenden enaio Client (nur mit --live, Markierung in enaio nötig)
+        if (args.Contains("--live"))
+        {
+            Run("LIVE EnaioClient: GetCurrentSelection liefert ID,Typ-Liste (ref null)", TestLiveCurrentSelection);
+            Run("LIVE EnaioClient: GetFiles für alle markierten Objekte", TestLiveGetFiles);
+        }
 
         Console.WriteLine();
         Console.WriteLine($"Testergebnis: {passed} bestanden, {failed} fehlgeschlagen.");
@@ -367,6 +374,25 @@ internal static class TestProgram
         finally
         {
             DeleteTempDir(dir);
+        }
+    }
+
+    private static void TestLiveCurrentSelection()
+    {
+        using var enaio = new EnaioClient();
+        string sel = enaio.GetCurrentSelection();
+        Assert(!string.IsNullOrWhiteSpace(sel), "Keine Auswahl geliefert (in enaio Objekte markieren)");
+        Assert(ParameterParser.Parse(sel).Documents.Count > 0, "Auswahl nicht parsebar: " + sel);
+    }
+
+    private static void TestLiveGetFiles()
+    {
+        using var enaio = new EnaioClient();
+        var docs = ParameterParser.Parse(enaio.GetCurrentSelection()).Documents;
+        foreach (var d in docs)
+        {
+            var r = enaio.GetFiles(d);
+            Assert(r.Status == FileFetchStatus.Success, $"GetFiles {d.Id}/{d.Type}: {r.Status} {r.ErrorMessage}");
         }
     }
 

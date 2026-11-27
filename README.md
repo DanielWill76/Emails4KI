@@ -155,3 +155,10 @@ Alle Werte können über Umgebungsvariablen mit dem Präfix `EMAILS4KI_` übersc
 dotnet build Emails4KI.sln -c Release
 dotnet run --project tests\Emails4KI.Tests\Emails4KI.Tests.csproj -c Release
 ```
+
+Optional: Live-Tests gegen einen laufenden enaio Client (Objekte markieren, dann ausführen):
+
+```powershell
+dotnet run --project tests\Emails4KI.Tests\Emails4KI.Tests.csproj -c Release -- --live
+powershell -ExecutionPolicy Bypass -File tests\enaio-com-probe.ps1
+```
